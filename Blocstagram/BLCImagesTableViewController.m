@@ -91,7 +91,7 @@
 }
 
 - (NSArray *)items {
-    NSMutableArray *items = [[BLCDataSource sharedInstance].mediaItems mutableCopy];
+    NSArray *items = [BLCDataSource sharedInstance].mediaItems;
     return items;
 }
 
