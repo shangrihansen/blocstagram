@@ -75,6 +75,7 @@
     return items;
 }
 
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView beginUpdates];
@@ -92,6 +93,7 @@
     }
     [self.tableView endUpdates];
 }
+*/
 
 /*
 // Override to support rearranging the table view.
