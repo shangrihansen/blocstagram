@@ -126,7 +126,7 @@ static NSParagraphStyle *paragraphStyle;
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-    
+   
     // color the background
     self.usernameAndCaptionLabel.backgroundColor = usernameLabelGray;
     self.commentLabel.backgroundColor = commentLabelGray;
@@ -141,7 +141,9 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
     
-    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    //fixed bug here when using CGRectGetWidth(self.contentView.bounds), now layout has no overlap with commentLabel
+    self.imageHeightConstraint.constant = (self.mediaItem.image.size.height / self.mediaItem.image.size.width) * CGRectGetWidth([UIScreen mainScreen].bounds);
+    NSLog(@"imageHeightConstraint.constant setMediaItem value %f", self.imageHeightConstraint.constant);
 }
 
 + (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width {
@@ -154,8 +156,11 @@ static NSParagraphStyle *paragraphStyle;
     
     [layoutCell setNeedsLayout];
     [layoutCell layoutIfNeeded];
-
-    return CGRectGetMaxY(layoutCell.commentLabel.frame);
+    
+    CGFloat maxY = CGRectGetMaxY(layoutCell.commentLabel.frame);
+    NSLog(@"maxY heightForMediaItem value %f", maxY);
+    
+    return maxY;
 }
 /*
 - (void)awakeFromNib {
