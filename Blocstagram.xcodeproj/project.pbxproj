@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30540741A0955D3000F0F76 /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30540731A0955D3000F0F76 /* BLCLoginViewController.m */; };
 		B36CDFD21A002DFA00E08920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B36CDFD11A002DFA00E08920 /* main.m */; };
 		B36CDFD51A002DFA00E08920 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B36CDFD41A002DFA00E08920 /* BLCAppDelegate.m */; };
 		B36CDFD71A002DFA00E08920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B36CDFD61A002DFA00E08920 /* Images.xcassets */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B30540721A0955D3000F0F76 /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
+		B30540731A0955D3000F0F76 /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 		B36CDFCC1A002DFA00E08920 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36CDFD01A002DFA00E08920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B36CDFD11A002DFA00E08920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				B3E95CC11A02DEB100AEC077 /* BLCComment.m */,
 				B3E95CC31A02DF4400AEC077 /* BLCDataSource.h */,
 				B3E95CC41A02DF4400AEC077 /* BLCDataSource.m */,
+				B30540721A0955D3000F0F76 /* BLCLoginViewController.h */,
+				B30540731A0955D3000F0F76 /* BLCLoginViewController.m */,
 				B36CDFCF1A002DFA00E08920 /* Supporting Files */,
 			);
 			path = Blocstagram;
@@ -296,6 +301,7 @@
 				B3E95CC21A02DEB100AEC077 /* BLCComment.m in Sources */,
 				B3B5F3A71A06A07E001811FE /* BLCMediaTableViewCell.m in Sources */,
 				B3E95CC51A02DF4400AEC077 /* BLCDataSource.m in Sources */,
+				B30540741A0955D3000F0F76 /* BLCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
