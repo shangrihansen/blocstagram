@@ -54,7 +54,7 @@ static NSParagraphStyle *paragraphStyle;
         
         self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100];
         
-        self.usernameAndCaptionLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_usernameAndCaptionLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100];
+        self.usernameAndCaptionLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_usernameAndCaptionLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:800];
         
         self.commentLabelHeightConstraint =[NSLayoutConstraint constraintWithItem:_commentLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100];
         
@@ -154,10 +154,10 @@ static NSParagraphStyle *paragraphStyle;
     
     [layoutCell setNeedsLayout];
     [layoutCell layoutIfNeeded];
-    
+
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
-
+/*
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -167,5 +167,5 @@ static NSParagraphStyle *paragraphStyle;
 
     // Configure the view for the selected state
 }
-
+*/
 @end
