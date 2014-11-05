@@ -141,9 +141,12 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
     
-    //fixed bug here when using CGRectGetWidth(self.contentView.bounds), now layout has no overlap with commentLabel
-    self.imageHeightConstraint.constant = (self.mediaItem.image.size.height / self.mediaItem.image.size.width) * CGRectGetWidth([UIScreen mainScreen].bounds);
-    NSLog(@"imageHeightConstraint.constant setMediaItem value %f", self.imageHeightConstraint.constant);
+    if (_mediaItem.image) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth([UIScreen mainScreen].bounds);
+    } else {
+        self.imageHeightConstraint.constant = 0;
+    }
+    //NSLog(@"imageHeightConstraint.constant setMediaItem value %f", self.imageHeightConstraint.constant);
 }
 
 + (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width {
@@ -162,15 +165,19 @@ static NSParagraphStyle *paragraphStyle;
     
     return maxY;
 }
-/*
+
 - (void)awakeFromNib {
     // Initialization code
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:animated];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    [super setSelected:NO animated:animated];
 
     // Configure the view for the selected state
 }
-*/
+
 @end

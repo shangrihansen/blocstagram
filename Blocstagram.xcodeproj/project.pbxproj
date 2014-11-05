@@ -128,14 +128,14 @@
 				B3E95CBB1A02DB9900AEC077 /* BLCUser.m */,
 				B3E95CBD1A02DCDE00AEC077 /* BLCMedia.h */,
 				B3E95CBE1A02DCDE00AEC077 /* BLCMedia.m */,
-				B36CDFD61A002DFA00E08920 /* Images.xcassets */,
-				B36CDFD81A002DFA00E08920 /* LaunchScreen.xib */,
 				B3E95CC01A02DEB100AEC077 /* BLCComment.h */,
 				B3E95CC11A02DEB100AEC077 /* BLCComment.m */,
 				B3E95CC31A02DF4400AEC077 /* BLCDataSource.h */,
 				B3E95CC41A02DF4400AEC077 /* BLCDataSource.m */,
 				B30540721A0955D3000F0F76 /* BLCLoginViewController.h */,
 				B30540731A0955D3000F0F76 /* BLCLoginViewController.m */,
+				B36CDFD61A002DFA00E08920 /* Images.xcassets */,
+				B36CDFD81A002DFA00E08920 /* LaunchScreen.xib */,
 				B36CDFCF1A002DFA00E08920 /* Supporting Files */,
 			);
 			path = Blocstagram;
