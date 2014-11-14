@@ -12,8 +12,13 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 #import "BLCMediaTableViewCell.h"
+#import "BLCMediaFullScreenViewController.h"
+#import "BLCMediaFullScreenAnimator.h"
 
-@interface BLCImagesTableViewController ()
+@interface BLCImagesTableViewController () <BLCMediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, BLCMediaFullScreenViewControllerDelegate>
+
+@property (nonatomic, weak) UIImageView *lastTappedImageView;
+@property (nonatomic, strong) BLCMediaTableViewCell *desiredCell;
 
 @end
 
@@ -109,13 +114,13 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self items].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+    cell.delegate = self;
     cell.mediaItem = [self items][indexPath.row];
     NSLog(@"tableView cell %@", cell.mediaItem);
     return cell;
@@ -162,6 +167,77 @@
         //just in case
         NSLog(@"Unhandled editing style! %ld", editingStyle);
     }
+}
+
+#pragma mark - BLCMediaTableViewCellDelegate
+
+- (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    self.lastTappedImageView = imageView;
+    self.desiredCell = cell;
+    
+    BLCMediaFullScreenViewController *fullScreenVC = [[BLCMediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    fullScreenVC.delegate = self;
+    
+    fullScreenVC.transitioningDelegate = self;
+    fullScreenVC.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
+    NSLog(@"%s[%d]", __PRETTY_FUNCTION__, __LINE__);
+}
+
+- (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (cell.mediaItem.caption.length > 0) {
+        [itemsToShare addObject:cell.mediaItem.caption];
+    }
+    
+    if (cell.mediaItem.image) {
+        [itemsToShare addObject:cell.mediaItem.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+        
+        if ([activityVC respondsToSelector:@selector(popoverPresentationController)])
+        {
+            // iOS 8+
+            UIPopoverPresentationController *presentationController = [activityVC popoverPresentationController];
+            
+            presentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+            presentationController.sourceView = cell.imageView; // if button or change to self.view.
+            
+            CGFloat padding = 40;
+            
+            presentationController.sourceRect = CGRectMake(CGRectGetWidth(self.view.bounds) - padding, padding, 100, 50);
+            NSLog(@"%s[%d]", __PRETTY_FUNCTION__, __LINE__);
+        }
+    }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    BLCMediaFullScreenAnimator *animator = [BLCMediaFullScreenAnimator new];
+    animator.presenting = YES;
+    animator.cellImageView = self.lastTappedImageView;
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    BLCMediaFullScreenAnimator *animator = [BLCMediaFullScreenAnimator new];
+    animator.cellImageView = self.lastTappedImageView;
+    return animator;
+}
+
+#pragma mark - BLCMediaFullScreenViewControllerDelegate
+
+- (void)shareMedia {
+    [self cell:self.desiredCell didLongPressImageView:self.lastTappedImageView];
 }
 
 /*

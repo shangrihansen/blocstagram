@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7EBE502D727A78976B35CB8B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2013A64D9B3680A230889CF7 /* libPods.a */; };
 		B30540741A0955D3000F0F76 /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30540731A0955D3000F0F76 /* BLCLoginViewController.m */; };
+		B3102B891A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3102B881A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.m */; };
 		B36CDFD21A002DFA00E08920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B36CDFD11A002DFA00E08920 /* main.m */; };
 		B36CDFD51A002DFA00E08920 /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B36CDFD41A002DFA00E08920 /* BLCAppDelegate.m */; };
 		B36CDFD71A002DFA00E08920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B36CDFD61A002DFA00E08920 /* Images.xcassets */; };
@@ -30,6 +31,7 @@
 		B3E95CBF1A02DCDE00AEC077 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E95CBE1A02DCDE00AEC077 /* BLCMedia.m */; };
 		B3E95CC21A02DEB100AEC077 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E95CC11A02DEB100AEC077 /* BLCComment.m */; };
 		B3E95CC51A02DF4400AEC077 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E95CC41A02DF4400AEC077 /* BLCDataSource.m */; };
+		B3F2D8C11A0C34A20039F546 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F2D8C01A0C34A20039F546 /* BLCMediaFullScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2F6BD3F55D8B41A6322D751F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B30540721A0955D3000F0F76 /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
 		B30540731A0955D3000F0F76 /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
+		B3102B871A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		B3102B881A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		B36CDFCC1A002DFA00E08920 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36CDFD01A002DFA00E08920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B36CDFD11A002DFA00E08920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		B3E95CC11A02DEB100AEC077 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
 		B3E95CC31A02DF4400AEC077 /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
 		B3E95CC41A02DF4400AEC077 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
+		B3F2D8BF1A0C34A20039F546 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
+		B3F2D8C01A0C34A20039F546 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
 		C28DF3EED6E740945CF5859D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,10 +150,14 @@
 			children = (
 				B36CDFD31A002DFA00E08920 /* BLCAppDelegate.h */,
 				B36CDFD41A002DFA00E08920 /* BLCAppDelegate.m */,
+				B3102B871A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.h */,
+				B3102B881A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.m */,
 				B36CE0041A002FE600E08920 /* BLCImagesTableViewController.h */,
 				B36CE0051A002FE700E08920 /* BLCImagesTableViewController.m */,
 				B3B5F3A51A06A07E001811FE /* BLCMediaTableViewCell.h */,
 				B3B5F3A61A06A07E001811FE /* BLCMediaTableViewCell.m */,
+				B3F2D8BF1A0C34A20039F546 /* BLCMediaFullScreenViewController.h */,
+				B3F2D8C01A0C34A20039F546 /* BLCMediaFullScreenViewController.m */,
 				B3E95CBA1A02DB9900AEC077 /* BLCUser.h */,
 				B3E95CBB1A02DB9900AEC077 /* BLCUser.m */,
 				B3E95CC01A02DEB100AEC077 /* BLCComment.h */,
@@ -353,11 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E95CBC1A02DB9900AEC077 /* BLCUser.m in Sources */,
+				B3102B891A113EEB000B0DE0 /* BLCMediaFullScreenAnimator.m in Sources */,
 				B3E95CBF1A02DCDE00AEC077 /* BLCMedia.m in Sources */,
 				B36CE0061A002FE700E08920 /* BLCImagesTableViewController.m in Sources */,
 				B36CDFD51A002DFA00E08920 /* BLCAppDelegate.m in Sources */,
 				B36CDFD21A002DFA00E08920 /* main.m in Sources */,
 				B3E95CC21A02DEB100AEC077 /* BLCComment.m in Sources */,
+				B3F2D8C11A0C34A20039F546 /* BLCMediaFullScreenViewController.m in Sources */,
 				B3B5F3A71A06A07E001811FE /* BLCMediaTableViewCell.m in Sources */,
 				B3E95CC51A02DF4400AEC077 /* BLCDataSource.m in Sources */,
 				B30540741A0955D3000F0F76 /* BLCLoginViewController.m in Sources */,
