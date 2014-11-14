@@ -106,13 +106,41 @@
     }
 }
 
+//- (void) downloadImagesAsNecessary {
+//    NSArray *indexArray = [self.tableView indexPathsForVisibleRows];
+//    for (NSIndexPath *indexPath in indexArray) {
+//        BLCMedia *mediaItem = [self items][indexPath.row];
+//        if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+//            [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+//        }
+//    }
+//}
+
 #pragma mark - UIScrollViewDelegate
+
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    if (!scrollView.dragging) {
+//        scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+//        [self downloadImagesAsNecessary];
+//    }
+//}
+//
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+//    [self downloadImagesAsNecessary];
+//}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self infiniteScrollIfNecessary];
 }
 
 #pragma mark - Table view data source
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    BLCMedia *mediaItem = [self items][indexPath.row];
+    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self items].count;
@@ -142,7 +170,6 @@
         return 150;
     }
 }
-
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
