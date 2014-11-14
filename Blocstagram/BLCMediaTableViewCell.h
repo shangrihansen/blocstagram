@@ -15,6 +15,9 @@
 - (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
 - (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
 
+//retry image downloads assignment
+- (void) cell:(BLCMediaTableViewCell *)cell didTwoFingerTapImageView:(UIImageView *)imageView;
+
 @end
 
 @interface BLCMediaTableViewCell : UITableViewCell

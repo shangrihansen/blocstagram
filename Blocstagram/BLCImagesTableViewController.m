@@ -216,6 +216,12 @@
     }
 }
 
+//retry image downloads assignment
+- (void) cell:(BLCMediaTableViewCell *)cell didTwoFingerTapImageView:(UIImageView *)imageView {
+    [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+    NSLog(@"%s[%d] Retry image download", __PRETTY_FUNCTION__, __LINE__);
+}
+
 #pragma mark - UIViewControllerTransitioningDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
